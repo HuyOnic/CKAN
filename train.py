@@ -45,10 +45,10 @@ def train(args):
             loss = criterion(output, labels)
             optimizer.zero_grad()
             loss.backward()
-            optimizer.zero_grad()
+            optimizer.step()
             loss_per_epoch.append(loss.item())
         mean_loss = sum(loss_per_epoch)/len(loss_per_epoch)
-        print(f'Epoch{epoch}/{num_epochs}, Loss: {mean_loss}')
+        print(f'Epoch: {epoch}/{num_epochs}, Loss: {mean_loss}')
         losses.append(mean_loss)
         loss_per_epoch = []
     torch.save(model.state_dict(), args.name)
