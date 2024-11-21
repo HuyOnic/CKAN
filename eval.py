@@ -8,6 +8,7 @@ def eval(args):
     if args.model.lower() == 'cnn':
         model = CNN()
     model.load_state_dict(torch.load(args.weights, weights_only=True))
+    model.to(device)
     model.eval()
     correct = 0
     total_samples = 0

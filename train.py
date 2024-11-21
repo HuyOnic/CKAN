@@ -35,6 +35,7 @@ def train(args):
     losses = []
     loss_per_epoch = []
 
+    model.to(device)
     for epoch in epochs:
         print(f"Start training epoch {epoch}/{num_epochs}")
         for i, (images, labels) in enumerate(train_loader):
